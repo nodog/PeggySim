@@ -2,5 +2,6 @@ enum PeggyMode
 {
   BouncingBalls,
   Fireworks,
-  Cancer
+  Cancer,
+  Squares
 }

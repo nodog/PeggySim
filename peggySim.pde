@@ -37,5 +37,9 @@ void keyPressed()
   {
     peggy.currentMode = PeggyMode.Cancer;
   }
+  else if ( key == '4' )
+  {
+    peggy.currentMode = PeggyMode.Squares;
+  }
   peggy.setup();
 }

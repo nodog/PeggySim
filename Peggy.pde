@@ -58,7 +58,8 @@ class Peggy
   {
     setupBouncingBalls( this );
     setupFireworks( this );
-    setupCancer( this );    
+    setupCancer( this );   
+    setupSquares( this ); 
   }
  
   void update()
@@ -75,6 +76,11 @@ class Peggy
           
       case Cancer:
           updateCancer( this );
+          break;
+          
+      case Squares:
+          updateSquares( this );
+          break;
     }
     
     // transfer the pixels from the graphics surface to peggy
