@@ -4,6 +4,7 @@ float currentMode;
 int currentCount;
 int currentWriteFrame, currentReadFrameOffset; 
 color cancerArray[][];
+float brightArray[];
 float xPos, yPos;
 float xMaxGrow, yMaxGrow;
 
@@ -14,6 +15,7 @@ void setupCancer( Peggy peggy )
   currentWriteFrame = 0; 
   currentReadFrameOffset = 0;
   cancerArray = new color[ nHistory ][ peggy.nXLeds*peggy.nYLeds ];
+  brightArray = new float[ peggy.nXLeds*peggy.nYLeds ];
   currentMode = random( 0.0, 1.0 );
 
   for( int jY=0; jY<peggy.nYLeds; jY++ )
@@ -43,7 +45,7 @@ void updateCancer( Peggy peggy )
   currentCount += 1;
   currentWriteFrame = currentCount%nHistory;
   //println( "currentWriteFrame = " + currentWriteFrame + " currentReadFrameOffset = " + currentReadFrameOffset );
- 
+
   float smallColorChange = random( 0.0, 0.01 ); 
   for( int jX=0; jX<peggy.nXLeds; jX++ )
   {
@@ -63,6 +65,7 @@ void updateCancer( Peggy peggy )
       }
       cancerArray[ currentWriteFrame ][ peggy.iGray( jX, jY ) ] = oldValue + color( smallColorChange );
  
+ 
     }
   }
 
@@ -78,7 +81,14 @@ void updateCancer( Peggy peggy )
      currentReadFrameOffset = int( random( 0, nHistory - 1 ) );
   }
   arrayCopy( cancerArray[ ( currentWriteFrame + currentReadFrameOffset )%nHistory ], peggy.canvas.pixels );
-     
+ 
+  for ( int i = 0; i < peggy.nXLeds*peggy.nYLeds; i++ )
+  {
+    brightArray[ i ] = brightness( peggy.canvas.pixels[ i ] );
+  }
+
+  arraySounder.setSpectrum( brightArray );   
+
   //for( int iFrame = nHistory - 1; iFrame > 0; iFrame-- )
   //{
   //  arrayCopy( cancerArray[ iFrame - 1 ], cancerArray[ iFrame ] ); 
