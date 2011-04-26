@@ -88,13 +88,13 @@ void updateSquares( Peggy peg )
     changeTimer = 0.f;
   }
   
-  //peggy.canvas.loadPixels();
+  /*peggy.canvas.loadPixels();
   
-  //for ( int i2 = 0; i2 < peggy.nXLeds*peggy.nYLeds; i2++ )
-  //{
-  //  brightArray[ i2 ] = brightness( peggy.canvas.pixels[ i2 ] );
-  //}
-
+  for ( int i2 = 0; i2 < peggy.nXLeds*peggy.nYLeds; i2++ )
+  {
+    brightArray[ i2 ] = brightness( peggy.canvas.pixels[ i2 ] );
+  }
+  */
   //arraySounder.setSpectrum( brightArray );
   
   peg.canvas.popMatrix();

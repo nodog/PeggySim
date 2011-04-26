@@ -12,8 +12,8 @@ class ArraySounder
   
   ArraySounder( int nRows, int nCols )
   {
-    spectrumSize = 4096;
-    int nOverlap = 4;
+    spectrumSize = 2048;
+    int nOverlap = 8;
     this.arraySize = arraySize;
     AudioOutput out = minim.getLineOut( Minim.MONO, 2048 );    
 

@@ -28,9 +28,9 @@ class Peggy
     gray9ValueArray = new float[ nXLeds*nYLeds ];
     nearlyZero = 0.0001;
     
-    // currentMode = PeggyMode.BouncingBalls;
+    currentMode = PeggyMode.BouncingBalls;
     //currentMode = PeggyMode.Fireworks;
-    currentMode = PeggyMode.Cancer;
+    //currentMode = PeggyMode.Cancer;
     
     backgroundTint = 0.f;
     canvas = createGraphics( nXLeds, nYLeds, JAVA2D );

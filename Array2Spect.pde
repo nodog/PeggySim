@@ -1,4 +1,4 @@
-import ddf.minim.analysis.FFT;
+import ddf.minim.analysis.*;
 
 public class Array2Spect extends UGen
 {
@@ -68,7 +68,7 @@ public class Array2Spect extends UGen
     m_imageArray = new float[ nRows * nCols ];
     m_rowIndex = 0;
     
-    m_interpDivisor = 32;
+    m_interpDivisor = 64;
  
   }
 
