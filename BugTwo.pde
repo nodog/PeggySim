@@ -4,7 +4,7 @@ double ZOOM;
   
 void setupBugTwo( Peggy peg )
 {
-  MAX_ITER = 300;
+  MAX_ITER = 200;
   ZOOM = 1;
 }
 
@@ -12,9 +12,9 @@ void setupBugTwo( Peggy peg )
 void updateBugTwo( Peggy peg)
 {
 
-  double zx, zy, cX, cY, tmp;
+  double zX, zY, countX, countY, tmp;
   
-  ZOOM = 0.4 + ZOOM; 
+  ZOOM = 0.3 + ZOOM; 
   
   peg.canvas.loadPixels();  
   
@@ -24,15 +24,17 @@ void updateBugTwo( Peggy peg)
     for ( int iX=0; iX < peggy.nXLeds; iX++  )
      {     
   
-       zx = zy = 0;
-       cX = (iX - 4) / ZOOM;
-       cY = (iY - 4) / ZOOM;
+       zX = zY = 0; //reset things to zero
+       
+       countX = (iX - 4) / ZOOM;
+       countY = (iY - 4) / ZOOM;
        int iter = MAX_ITER;
-       while ((zx * zx + zy * zy < 4) && (iter > 0)) 
+       
+       while ( (zX * zX + zY * zY < 4) && (iter > 0) ) 
        {
-         tmp = zx * zx - zy * zy + cX;
-         zy = 2.0 * zx * zy + cY;
-         zx = tmp;
+         tmp = zX * zX - zY * zY + countX;
+         zY =  zX * zY + countY;
+         zX = tmp;
          iter--;  
        }
      

@@ -43,5 +43,9 @@ void keyPressed()
   {
     peggy.currentMode = PeggyMode.Squares;
   }
+  else if ( key == '5' )
+  {
+    peggy.currentMode = PeggyMode.BugTwo;
+  }
   peggy.setup();
 }

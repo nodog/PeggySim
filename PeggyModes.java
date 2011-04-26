@@ -3,5 +3,6 @@ enum PeggyMode
   BouncingBalls,
   Fireworks,
   Cancer,
-  Squares
+  Squares,
+  BugTwo
 }

@@ -60,6 +60,7 @@ class Peggy
     setupFireworks( this );
     setupCancer( this );   
     setupSquares( this ); 
+    setupBugTwo( this );
   }
  
   void update()
@@ -80,6 +81,10 @@ class Peggy
           
       case Squares:
           updateSquares( this );
+          break;
+          
+      case BugTwo:
+          updateBugTwo( this );
           break;
     }
     
