@@ -8,7 +8,7 @@ void setup()
 {
   size( 800, 800, JAVA2D);
   peggy = new Peggy( width, height );
-  arraySounder = new ArraySounder( peggy.nXLeds, peggy.nYLeds );
+  //arraySounder = new ArraySounder( peggy.nXLeds, peggy.nYLeds );
   
   frameRate( 30 );
   

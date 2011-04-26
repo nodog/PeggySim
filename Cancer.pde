@@ -87,7 +87,7 @@ void updateCancer( Peggy peggy )
     brightArray[ i ] = brightness( peggy.canvas.pixels[ i ] );
   }
 
-  arraySounder.setSpectrum( brightArray );   
+  //arraySounder.setSpectrum( brightArray );   
 
   //for( int iFrame = nHistory - 1; iFrame > 0; iFrame-- )
   //{

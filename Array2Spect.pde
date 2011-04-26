@@ -68,7 +68,7 @@ public class Array2Spect extends UGen
     m_imageArray = new float[ nRows * nCols ];
     m_rowIndex = 0;
     
-    m_interpDivisor = 64;
+    m_interpDivisor = 32;
  
   }
 
