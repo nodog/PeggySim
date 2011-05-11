@@ -4,5 +4,6 @@ enum PeggyMode
   Fireworks,
   Cancer,
   Squares,
-  BugTwo
+  BugTwo,
+  Primes
 }

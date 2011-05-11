@@ -6,7 +6,7 @@ ArraySounder arraySounder;
 
 void setup()
 {
-  size( 800, 800, JAVA2D);
+  size( 600, 600, JAVA2D);
   peggy = new Peggy( width, height );
   //arraySounder = new ArraySounder( peggy.nXLeds, peggy.nYLeds );
   
@@ -46,6 +46,10 @@ void keyPressed()
   else if ( key == '5' )
   {
     peggy.currentMode = PeggyMode.BugTwo;
+  }
+  else if ( key == '6' )
+  {
+    peggy.currentMode = PeggyMode.Primes;
   }
   peggy.setup();
 }

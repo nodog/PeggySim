@@ -61,6 +61,7 @@ class Peggy
     setupCancer( this );   
     setupSquares( this ); 
     setupBugTwo( this );
+    setupPrimes( this );
   }
  
   void update()
@@ -85,6 +86,10 @@ class Peggy
           
       case BugTwo:
           updateBugTwo( this );
+          break;
+          
+      case Primes:
+          updatePrimes( this );
           break;
     }
     

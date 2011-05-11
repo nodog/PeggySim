@@ -2,6 +2,7 @@ import ddf.minim.*;
 import ddf.minim.ugens.*;
     
 Minim minim = new Minim( this );
+AudioOutput out = minim.getLineOut(Minim.MONO, 2048);
 
 class ArraySounder
 {
@@ -14,8 +15,7 @@ class ArraySounder
   {
     spectrumSize = 2048;
     int nOverlap = 8;
-    this.arraySize = arraySize;
-    AudioOutput out = minim.getLineOut( Minim.MONO, 2048 );    
+    this.arraySize = arraySize; 
 
     osc = new Oscil( 349.23, 0.8 );
     
