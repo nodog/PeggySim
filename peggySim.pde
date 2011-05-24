@@ -51,5 +51,9 @@ void keyPressed()
   {
     peggy.currentMode = PeggyMode.Primes;
   }
+  else if ( key == '7' )
+  {
+    peggy.currentMode = PeggyMode.Horticulture;
+  }
   peggy.setup();
 }

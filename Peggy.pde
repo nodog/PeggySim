@@ -62,6 +62,7 @@ class Peggy
     setupSquares( this ); 
     setupBugTwo( this );
     setupPrimes( this );
+    setupHorticulture( this );
   }
  
   void update()
@@ -90,6 +91,10 @@ class Peggy
           
       case Primes:
           updatePrimes( this );
+          break;
+          
+      case Horticulture:
+          updateHorticulture( this );
           break;
     }
     
