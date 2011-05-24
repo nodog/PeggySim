@@ -1,3 +1,5 @@
+
+
 class Peggy
 {
   int nXLeds, nYLeds;
@@ -11,6 +13,13 @@ class Peggy
   float nearlyZero;
   PGraphics canvas;
   
+  
+  byte [] peggyHeader = new byte[] 
+      { (byte)0xde, (byte)0xad, (byte)0xbe,(byte)0xef,1,0 };
+  byte [] peggyFrame = new byte[13*25];
+
+  boolean SerialEnabled;      // Set to "false" until we have a successful connection.
+
   PeggyMode currentMode;
   
   Peggy( int boardWidth, int boardHeight )
@@ -28,9 +37,11 @@ class Peggy
     gray9ValueArray = new float[ nXLeds*nYLeds ];
     nearlyZero = 0.0001;
     
-    currentMode = PeggyMode.BouncingBalls;
+
+    //currentMode = PeggyMode.BouncingBalls;
     //currentMode = PeggyMode.Fireworks;
     //currentMode = PeggyMode.Cancer;
+    currentMode = PeggyMode.Squares;
     
     backgroundTint = 0.f;
     canvas = createGraphics( nXLeds, nYLeds, JAVA2D );
@@ -56,6 +67,8 @@ class Peggy
   
   void setup()
   {
+  
+
     setupBouncingBalls( this );
     setupFireworks( this );
     setupCancer( this );   
@@ -63,6 +76,37 @@ class Peggy
     setupBugTwo( this );
     setupPrimes( this );
     setupHorticulture( this );
+  }
+  
+  // render a PImage to the Peggy by transmitting it serially.  
+  // If it is not already sized to 25x25, this method will 
+  // create a downsized version to send...
+  void renderToPeggy() 
+  {
+    int idx = 0;
+   // iterate over the image, pull out pixels and 
+    // build an array to serialize to the peggy
+    for ( int iY = 0; iY < nYLeds; iY++ )
+    {
+      byte val = 0;
+      for ( int iX=0; iX < 25; iX++ )
+      {
+        int br = ((int)whiteLedArray[ iGray( iX, iY ) ] );
+        if (iX % 2 ==0)
+        {
+          val = (byte)br;
+        }
+        else
+        {
+          val = (byte) ((br<<4)|val);
+          peggyFrame[idx++]= val;
+        }
+      }
+      peggyFrame[idx++]= val;  // write that one last leftover half-byte
+    }
+   
+    peggyPort.write(peggyHeader);
+    peggyPort.write(peggyFrame); 
   }
  
   void update()
@@ -170,7 +214,10 @@ class Peggy
               nXLedSize, nYLedSize );
       }
     }
-  } 
+    
+    renderToPeggy();
+        
+  } // end main loop 
   
   int iGray( int iX, int iY )
   {

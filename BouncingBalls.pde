@@ -8,7 +8,7 @@ float[] ballColors;
 
 PVector oneEnd, otherEnd;
 PVector oneEndDir, otherEndDir;
-float backgroundTint;
+float backgroundTint, shadeTint;
 
 float minRadius, maxRadius;
 
@@ -25,8 +25,9 @@ void setupBouncingBalls( Peggy peg )
     ballRadiiVelocities = new float[ nBalls ];
     ballColors = new float[ nBalls ];
     float speed = 2.f;
-    minRadius = 0.3;
-    maxRadius = random( 5.0 );
+    minRadius = 0.1;
+    maxRadius = random( random( 0.11, 5.0 ) );
+    shadeTint = random( 0.05, 0.5 );
     for( int i = 0; i < nBalls; i++ )
     {
       ballPositions[ i ] = new PVector( (int)( random( peg.nXLeds - 2 ) + 1 ), (int)( random( peg.nYLeds - 1 ) + 1 ) );
@@ -78,7 +79,7 @@ void updateBouncingBalls( Peggy peg )
     {
       speedCount = 0;
       speedFactor = random( 0.01, random( 0.01, 2.0 ) );
-      speedCountLimit = int( random( 10, 50 ) );
+      speedCountLimit = int( random( 10, 190 ) );
 
       for( int i = 0; i < nBalls; i++ )
       {
@@ -88,8 +89,8 @@ void updateBouncingBalls( Peggy peg )
     }
     
     peg.canvas.noStroke();
-    peg.canvas.fill( backgroundTint, 0.35 );
-    peg.canvas.rect( 0, 0, 25, 25 );
+    peg.canvas.fill( backgroundTint, 0.05 );
+    peg.canvas.rect( 0, 0, peggy.nXLeds, peggy.nYLeds );
     //peg.canvas.background(backgroundTint);
     peg.canvas.stroke( 1.0 );
     peg.canvas.fill( 255.0 );
