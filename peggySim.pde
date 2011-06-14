@@ -3,10 +3,10 @@ import processing.serial.*;
 Serial peggyPort;
 
 float now = 0.0;
-float stepSize = 0.01;
+float stepSize = 1.0;
 
 Peggy peggy;
-ArraySounder arraySounder;
+//ArraySounder arraySounder;
 
 
 void setup()
@@ -17,7 +17,7 @@ void setup()
 
   //arraySounder = new ArraySounder( peggy.nXLeds, peggy.nYLeds );
   
-  frameRate( 20 );
+  frameRate( 15 );
   
   colorMode( RGB, 1.0 );
   background( 0.0, 0.0, 0.0 );
@@ -28,6 +28,11 @@ void setup()
 void draw()
 {
   now = now + stepSize;
+  if( random( 0.0, 1.0 ) < 0.001 )
+  {
+    peggy.currentMode = PeggyMode.randomMode();
+    peggy.setup();
+  }
   peggy.update();
   peggy.draw(); 
 }
@@ -52,19 +57,15 @@ void keyPressed()
   }
   else if ( key == '5' )
   {
-    peggy.currentMode = PeggyMode.BugTwo;
+    peggy.currentMode = PeggyMode.Spore;
   }
   else if ( key == '6' )
   {
     peggy.currentMode = PeggyMode.Primes;
   }
-  else if ( key == '8' )
-  {
-    peggy.currentMode = PeggyMode.Spore;
-  }
-  else if ( key == '7' )
-  {
-    peggy.currentMode = PeggyMode.Horticulture;
-  }
+  //else if ( key == '7' )
+  //{
+  //  peggy.currentMode = PeggyMode.Horticulture;
+  //}
   peggy.setup();
 }
