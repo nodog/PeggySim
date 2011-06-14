@@ -51,5 +51,9 @@ void keyPressed()
   {
     peggy.currentMode = PeggyMode.Primes;
   }
+  else if ( key == '8' )
+  {
+    peggy.currentMode = PeggyMode.Spore;
+  }
   peggy.setup();
 }

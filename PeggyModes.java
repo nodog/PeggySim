@@ -5,5 +5,6 @@ enum PeggyMode
   Cancer,
   Squares,
   BugTwo,
-  Primes
+  Primes,
+  Spore
 }
