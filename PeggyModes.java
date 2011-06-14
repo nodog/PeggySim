@@ -6,5 +6,6 @@ enum PeggyMode
   Squares,
   BugTwo,
   Primes,
-  Spore
+  Spore,
+  Horticulture
 }
