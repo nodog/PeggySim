@@ -58,11 +58,11 @@ void keyPressed()
   {
     peggy.currentMode = PeggyMode.Primes;
   }
-  else if ( key == '8' )
+  else if ( key == '7' )
   {
     peggy.currentMode = PeggyMode.Spore;
   }
-  else if ( key == '7' )
+  else if ( key == '8' )
   {
     peggy.currentMode = PeggyMode.Horticulture;
   }
