@@ -220,7 +220,11 @@ class Peggy
       }
     }
     
-    renderToPeggy();
+   
+   
+   // not right now
+   // renderToPeggy();
+    
         
   } // end main loop 
   
