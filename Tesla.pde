@@ -96,11 +96,15 @@ void updateTesla( Peggy peggy )
       }
       else if ( ( iY < rotorBottom ) && ( iY > rotorTop ) )
       {
-        //if( iX%3  )
-        //{ 
-        //   color maxMagn = max( phaseTapColors );
-        //   teslaArray[ peggy.iGray( iX, iY ) ] = maxMagn;
-        //}
+        if( ( iX - iY + teslaWidth )%3 == (int)( ( ( 3.0*teslaRadians )/( 2.0*PI ) )%3 ) )
+        { 
+           color maxMagn = max( phaseTapColors );
+           teslaArray[ peggy.iGray( ( teslaWidth + 1 - iX ), iY ) ] = maxMagn;
+        }
+        else
+        {
+           teslaArray[ peggy.iGray( ( teslaWidth + 1 - iX ), iY ) ] = color( 0.0 );
+        }
       }
       
     }
