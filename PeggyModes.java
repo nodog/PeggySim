@@ -2,6 +2,7 @@ import java.util.*;
 
 enum PeggyMode
 {
+  Wavez,
   BouncingBalls,
   Fireworks,
   Cancer,

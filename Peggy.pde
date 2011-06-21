@@ -42,6 +42,7 @@ class Peggy
     //currentMode = PeggyMode.Fireworks;
     //currentMode = PeggyMode.Cancer;
     //currentMode = PeggyMode.Squares;
+    //currentMode = PeggyMode.Wavez;
     //currentMode = PeggyMode.randomMode();
     currentMode = PeggyMode.Tesla;
     
@@ -78,7 +79,7 @@ class Peggy
     setupPrimes( this );
     setupHorticulture( this );
     setupTesla( this );
-    
+    setupWavez( this );
   }
   
   // render a PImage to the Peggy by transmitting it serially.  
@@ -116,6 +117,10 @@ class Peggy
   {
     switch( currentMode )
     {
+      case Wavez:
+          updateWavez( this );
+          break;
+          
       case BouncingBalls:
           updateBouncingBalls( this );
           break;

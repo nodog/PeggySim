@@ -74,6 +74,10 @@ void keyPressed()
   {
     peggy.currentMode = PeggyMode.Horticulture;
   }
+  else if ( key == '9' )
+  {
+    peggy.currentMode = PeggyMode.Wavez;
+  }
   else if ( key == '0' )
   {
     peggy.currentMode = PeggyMode.Tesla;
