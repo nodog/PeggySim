@@ -71,6 +71,10 @@ void keyPressed()
   {
     peggy.currentMode = PeggyMode.Horticulture;
   }
+  else if ( key == '9' )
+  {
+    peggy.currentMode = PeggyMode.Wavez;
+  }
 
   peggy.setup();
 }

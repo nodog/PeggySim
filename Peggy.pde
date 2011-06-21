@@ -42,7 +42,8 @@ class Peggy
     //currentMode = PeggyMode.Fireworks;
     //currentMode = PeggyMode.Cancer;
     //currentMode = PeggyMode.Squares;
-    currentMode = PeggyMode.randomMode();
+    currentMode = PeggyMode.Wavez;
+    //currentMode = PeggyMode.randomMode();
     
     backgroundTint = 0.f;
     canvas = createGraphics( nXLeds, nYLeds, JAVA2D );
@@ -76,6 +77,7 @@ class Peggy
     //setupBugTwo( this );
     setupPrimes( this );
     setupHorticulture( this );
+    setupWavez( this );
     
   }
   
@@ -114,6 +116,10 @@ class Peggy
   {
     switch( currentMode )
     {
+      case Wavez:
+          updateWavez( this );
+          break;
+          
       case BouncingBalls:
           updateBouncingBalls( this );
           break;

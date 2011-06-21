@@ -56,6 +56,7 @@ void setupHorticulture( Peggy peg )
   colorMode( HSB, 1.0 );
   //frameRate( 30 );
   peg.canvas.stroke(1);
+  peg.canvas.background( 0 );
   fractal (seed, depth);
 }
 
