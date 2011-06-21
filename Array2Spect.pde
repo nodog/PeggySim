@@ -192,6 +192,3 @@ public class Array2Spect extends UGen
     }
   }
 }
- 
-
-

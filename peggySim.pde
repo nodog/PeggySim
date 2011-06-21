@@ -11,7 +11,7 @@ Peggy peggy;
 
 void setup()
 {
-  size( 600, 600, JAVA2D);
+  size( 850, 850, JAVA2D);
   peggy = new Peggy( width, height );
   peggyPort = new Serial( this, "/dev/cu.usbserial-FTEST5ED", 115200 );    // CHANGE_HERE
 
@@ -28,11 +28,14 @@ void setup()
 void draw()
 {
   now = now + stepSize;
-  if( random( 0.0, 1.0 ) < 0.001 )
+  
+  if( false )
+  //if( random( 0.0, 1.0 ) < 0.001 )
   {
     peggy.currentMode = PeggyMode.randomMode();
     peggy.setup();
   }
+  
   peggy.update();
   peggy.draw(); 
 }
@@ -70,6 +73,10 @@ void keyPressed()
   else if ( key == '8' )
   {
     peggy.currentMode = PeggyMode.Horticulture;
+  }
+  else if ( key == '0' )
+  {
+    peggy.currentMode = PeggyMode.Tesla;
   }
 
   peggy.setup();

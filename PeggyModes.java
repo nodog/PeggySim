@@ -9,7 +9,8 @@ enum PeggyMode
   //BugTwo,
   Primes,
   Horticulture,
-  Spore;
+  Spore,
+  Tesla;
   
   private static final List<PeggyMode> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
   private static final int SIZE = VALUES.size();

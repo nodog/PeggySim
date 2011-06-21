@@ -42,7 +42,8 @@ class Peggy
     //currentMode = PeggyMode.Fireworks;
     //currentMode = PeggyMode.Cancer;
     //currentMode = PeggyMode.Squares;
-    currentMode = PeggyMode.randomMode();
+    //currentMode = PeggyMode.randomMode();
+    currentMode = PeggyMode.Tesla;
     
     backgroundTint = 0.f;
     canvas = createGraphics( nXLeds, nYLeds, JAVA2D );
@@ -76,6 +77,7 @@ class Peggy
     //setupBugTwo( this );
     setupPrimes( this );
     setupHorticulture( this );
+    setupTesla( this );
     
   }
   
@@ -140,6 +142,10 @@ class Peggy
           
       case Horticulture:
           updateHorticulture( this );
+          break;
+          
+      case Tesla:
+          updateTesla( this );
           break;
     }
     
