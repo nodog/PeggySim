@@ -41,7 +41,8 @@ class Peggy
     //currentMode = PeggyMode.BouncingBalls;
     //currentMode = PeggyMode.Fireworks;
     //currentMode = PeggyMode.Cancer;
-    currentMode = PeggyMode.Squares;
+    //currentMode = PeggyMode.Squares;
+    currentMode = PeggyMode.randomMode();
     
     backgroundTint = 0.f;
     canvas = createGraphics( nXLeds, nYLeds, JAVA2D );
@@ -67,16 +68,15 @@ class Peggy
   
   void setup()
   {
-  
-
+    setupSpore( this );
     setupBouncingBalls( this );
     setupFireworks( this );
     setupCancer( this );   
     setupSquares( this ); 
-    setupBugTwo( this );
+    //setupBugTwo( this );
     setupPrimes( this );
-    setupSpore( this );
     setupHorticulture( this );
+    
   }
   
   // render a PImage to the Peggy by transmitting it serially.  
@@ -130,16 +130,12 @@ class Peggy
           updateSquares( this );
           break;
           
-      case BugTwo:
-          updateBugTwo( this );
+      case Spore:
+          updateSpore( this );
           break;
           
       case Primes:
           updatePrimes( this );
-          break;
-          
-      case Spore:
-          updateSpore( this );
           break;
           
       case Horticulture:
@@ -202,6 +198,7 @@ class Peggy
  
   void draw()
   {
+    
     
     for( int iY = 0; iY<nYLeds; iY++ )
     {
