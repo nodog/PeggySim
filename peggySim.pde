@@ -11,9 +11,9 @@ Peggy peggy;
 
 void setup()
 {
-  size( 850, 850, JAVA2D);
+  size( 850, 850 );
   peggy = new Peggy( width, height );
-  peggyPort = new Serial( this, "/dev/cu.usbserial-FTEST5ED", 115200 );    // CHANGE_HERE
+  peggyPort = new Serial( this, "/dev/cu.usbserial-FTF7OBG4", 115200 );    // CHANGE_HERE
 
   //arraySounder = new ArraySounder( peggy.nXLeds, peggy.nYLeds );
   

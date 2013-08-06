@@ -44,10 +44,11 @@ class Peggy
     //currentMode = PeggyMode.Squares;
     //currentMode = PeggyMode.Wavez;
     //currentMode = PeggyMode.randomMode();
-    currentMode = PeggyMode.Tesla;
+    //currentMode = PeggyMode.Tesla;
+    currentMode = PeggyMode.Spinning;
     
     backgroundTint = 0.f;
-    canvas = createGraphics( nXLeds, nYLeds, JAVA2D );
+    canvas = createGraphics( nXLeds, nYLeds );
     canvas.colorMode( HSB, 1.0 );
     canvas.ellipseMode(CENTER);
     canvas.smooth();
@@ -80,6 +81,7 @@ class Peggy
     setupHorticulture( this );
     setupTesla( this );
     setupWavez( this );
+    setupSpinning( this );
   }
   
   // render a PImage to the Peggy by transmitting it serially.  
@@ -151,6 +153,9 @@ class Peggy
           
       case Tesla:
           updateTesla( this );
+          
+      case Spinning:
+          updateSpinning( this );
           break;
     }
     
@@ -231,7 +236,7 @@ class Peggy
    
    
    // not right now
-   // renderToPeggy();
+   renderToPeggy();
     
         
   } // end main loop 

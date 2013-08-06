@@ -23,7 +23,9 @@ float sporeTimer;
 void setupSpore( Peggy peg )
 {
   peggyCanvas = peg.canvas;
+  peggyCanvas.beginDraw();
   peggyCanvas.background( 0 );
+  peggyCanvas.endDraw();
   maxcells = int( random( 10, 50 ) );
   cells = new Cell[maxcells];
   w = new World();

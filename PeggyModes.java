@@ -11,7 +11,8 @@ enum PeggyMode
   Primes,
   Horticulture,
   Spore,
-  Tesla;
+  Tesla,
+  Spinning;
   
   private static final List<PeggyMode> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
   private static final int SIZE = VALUES.size();
